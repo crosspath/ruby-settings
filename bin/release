@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative "../lib/ruby-settings/version"
+
+version = Settings::VERSION
+
+system("git tag 'v#{version}' && git push origin 'v#{version}' && git push")
