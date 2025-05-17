@@ -28,7 +28,7 @@ module Settings
       hash = parse_file(file_path)
       raise ArgumentError, "File #{file_name} is empty" if hash.blank?
 
-      @values.merge!(hash)
+      @values.deep_merge!(hash)
     end
 
     private
@@ -48,7 +48,7 @@ module Settings
 
   extend self
 
-  # @returns [Struct-like object]
+  # @return [Struct-like object]
   def configurate(&)
     conf = Configurator.new
     conf.instance_eval(&)
@@ -78,7 +78,7 @@ module Settings
   end
 
   # @param value [Hash]
-  # @returns [Struct-like object]
+  # @return [Struct-like object]
   def hash_to_struct(value)
     value = value.to_h { |k, v| [k.to_sym, generate_struct(v)] }
     keys = value.keys.sort

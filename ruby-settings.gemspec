@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = Gem::Requirement.new(">= 3.3.0")
 
+  spec.add_dependency("activesupport", ">= 2.2.0")
+
   spec.add_development_dependency("rspec-core", "~> 3.13")
   spec.add_development_dependency("rspec-expectations", "~> 3.13")
   spec.add_development_dependency("rubocop", "~> 1.66")
